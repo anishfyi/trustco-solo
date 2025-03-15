@@ -808,7 +808,7 @@ a:hover {
 /* Right Side - Benefit Cards */
 .benefit-cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     flex: 1.5;
 }
@@ -879,7 +879,7 @@ a:hover {
 
     .benefit-cards {
         width: 100%;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .card-icon {
@@ -902,7 +902,7 @@ a:hover {
     }
 
     .benefit-cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-lg);
     }
 
@@ -947,5 +947,9 @@ a:hover {
 
     .benefit-card p {
         font-size: 0.9rem;
+    }
+
+    .benefit-cards {
+        grid-template-columns: 1fr;
     }
 } 

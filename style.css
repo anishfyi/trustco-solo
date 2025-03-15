@@ -762,7 +762,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 5%;
+    padding: var(--spacing-xl) 5%;
     background-color: var(--white);
 }
 
@@ -771,7 +771,7 @@ a:hover {
     align-items: flex-start;
     max-width: 1200px;
     width: 100%;
-    gap: 50px;
+    gap: var(--spacing-xl);
 }
 
 /* Left Side - Text Content */
@@ -786,55 +786,54 @@ a:hover {
     color: var(--white);
     padding: 6px 14px;
     border-radius: 15px;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .benefit-heading {
     font-size: 2.8rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     color: var(--text-color);
     line-height: 1.2;
 }
 
 .benefit-description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--light-text);
     line-height: 1.6;
 }
 
 /* Right Side - Benefit Cards */
 .benefit-cards {
-    flex: 1.5;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: var(--spacing-lg);
+    flex: 1.5;
 }
 
 .benefit-card {
-    background: var(--white);
-    padding: 24px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    background-color: var(--background-color);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
+    width: 70px;
+    margin-bottom: var(--spacing-md);
 }
 
 .card-icon img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
 }
 
@@ -842,7 +841,7 @@ a:hover {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--text-color);
-    margin-bottom: 12px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .benefit-card p {
@@ -852,16 +851,9 @@ a:hover {
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .benefit-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .benefit-text {
-        max-width: 600px;
+        padding: 0 var(--spacing-lg);
     }
 
     .benefit-heading {
@@ -869,30 +861,70 @@ a:hover {
     }
 
     .benefit-cards {
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 1024px) {
+    .benefit-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .benefit-text {
+        max-width: 600px;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .benefit-cards {
         width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-icon {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 @media (max-width: 768px) {
     #benefit-section {
-        padding: 40px 20px;
+        padding: var(--spacing-xl) var(--spacing-md);
     }
 
     .benefit-heading {
         font-size: 2rem;
     }
 
+    .benefit-description {
+        font-size: 1.1rem;
+    }
+
     .benefit-cards {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: var(--spacing-lg);
     }
 
     .benefit-card {
-        padding: 20px;
+        padding: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .card-icon {
+        width: 60px;
     }
 }
 
 @media (max-width: 480px) {
+    #benefit-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .benefit-text {
+        max-width: 100%;
+    }
+
     .benefit-heading {
         font-size: 1.8rem;
     }
@@ -901,9 +933,12 @@ a:hover {
         font-size: 1rem;
     }
 
+    .benefit-card {
+        padding: var(--spacing-md);
+    }
+
     .card-icon {
         width: 50px;
-        height: 50px;
     }
 
     .benefit-card h3 {

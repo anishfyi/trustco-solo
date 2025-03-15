@@ -92,6 +92,104 @@ a:hover {
     padding: 0 var(--spacing-md);
 }
 
+/* ============================= */
+/* Hero Section Styles */
+/* ============================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 50px;
+    background-color: var(--background-color);
+    min-height: 90vh;
+    gap: var(--spacing-xl);
+}
+
+/* Hero Images */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Hero Content */
+.hero-content {
+    flex: 2;
+    max-width: 600px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-content .highlight {
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+/* Hero Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.get-started {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.get-started:hover {
+    transform: translateY(-2px);
+    background-color: #003b56;
+}
+
+.video-btn {
+    background: var(--white);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.video-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
 /* Utility Classes */
 .text-center {
     text-align: center;

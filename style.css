@@ -385,54 +385,42 @@ a:hover {
 }
 
 .trusted-companies h2 {
-    font-size: 1.5rem;
-    color: var(--light-text);
-    margin-bottom: 2rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 .company-logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 90px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.company-logos img {
-    height: 30px;
-    width: auto;
-    opacity: 0.7;
+.company-logos li img {
+    max-height: 40px;
+    filter: grayscale(100%);
+    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
-.company-logos img:hover {
+.company-logos li img:hover {
     opacity: 1;
+    filter: grayscale(0%);
 }
 
-/* Responsive Styles for Navbar and Companies */
+/* Responsive styles for the company logos */
 @media (max-width: 1024px) {
-    .nav-links {
-        gap: 1.5rem;
-    }
-
     .company-logos {
         gap: 2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .auth-buttons {
-        display: none;
-    }
-
     .company-logos {
         gap: 1.5rem;
     }
@@ -443,10 +431,6 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    .logo img {
-        width: 120px;
-    }
-
     .trusted-companies {
         padding: 2rem 1rem;
     }

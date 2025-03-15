@@ -320,6 +320,7 @@ a:hover {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: padding 0.3s ease; /* Smooth transition for padding changes */
 }
 
 /* Logo styling */
@@ -390,47 +391,132 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: var(--white);
     padding: 2rem;
     z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    display: block;
 }
 
 .mobile-menu ul {
     list-style: none;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    padding: 0;
 }
 
 .mobile-menu li {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.active li {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .mobile-menu a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
+.mobile-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile menu buttons */
+.mobile-menu .mobile-auth {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mobile-menu .mobile-auth button {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Close button */
 .close-btn {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.5rem;
+    right: 1.5rem;
     font-size: 2rem;
     cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
-/* Responsive styles */
+.close-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Enhanced responsive styles */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .auth-buttons button {
+        padding: 0.4rem 1.2rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-links, .auth-buttons {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links, 
+    .auth-buttons {
         display: none;
     }
 
     .hamburger {
         display: block;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--text-color);
+        transition: color 0.3s ease;
     }
 
-    .mobile-menu.active {
-        display: block;
+    .hamburger:hover {
+        color: var(--primary-color);
+    }
+
+    .logo img {
+        height: 35px; /* Slightly smaller logo on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .logo img {
+        height: 30px; /* Even smaller logo on very small screens */
     }
 }
 

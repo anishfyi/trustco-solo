@@ -637,6 +637,7 @@ a:hover {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .video-thumbnail img {
@@ -659,42 +660,53 @@ a:hover {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .play-icon {
     width: 30px;
     height: 30px;
-    margin-left: 5px; /* Slight offset for visual balance */
+    margin-left: 5px;
 }
 
 /* Hover effects */
-.video-thumbnail a:hover img {
-    transform: scale(1.05);
+.video-thumbnail:hover img {
+    transform: scale(1.02);
 }
 
-.video-thumbnail a:hover .play-button {
+.video-thumbnail:hover .play-button {
     background: white;
     transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive styles */
 @media (max-width: 1024px) {
     .video-section {
-        padding: 3rem 2rem;
+        padding: 3rem 1.5rem;
     }
 
     .video-section h2 {
         font-size: 2rem;
     }
+
+    .video-container {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 768px) {
     .video-section {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 1rem;
     }
 
     .video-section h2 {
         font-size: 1.8rem;
+    }
+
+    .video-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .play-button {
@@ -705,6 +717,10 @@ a:hover {
     .play-icon {
         width: 24px;
         height: 24px;
+    }
+
+    .video-thumbnail {
+        border-radius: 15px;
     }
 }
 
@@ -718,7 +734,8 @@ a:hover {
     }
 
     .video-section p {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
     }
 
     .play-button {
@@ -729,5 +746,11 @@ a:hover {
     .play-icon {
         width: 20px;
         height: 20px;
+        margin-left: 3px;
+    }
+
+    .video-thumbnail {
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 } 

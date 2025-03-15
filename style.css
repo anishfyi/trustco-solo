@@ -123,11 +123,10 @@ a:hover {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: clamp(1rem, 5vw, 3rem);
-    background-color: #f2f5f6;
+    padding: 50px;
+    background-color: var(--background-color);
     min-height: 100vh;
     gap: var(--spacing-xl);
-    flex-wrap: wrap;
 }
 
 /* Hero Images */
@@ -136,7 +135,6 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 250px;
 }
 
 .hero-image img {
@@ -150,11 +148,11 @@ a:hover {
     flex: 2;
     max-width: 600px;
     text-align: center;
-    padding: 0 1rem;
+    padding: 0 var(--spacing-md);
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: 3.5rem;
     font-weight: bold;
     color: var(--text-color);
     margin-bottom: var(--spacing-lg);
@@ -166,11 +164,10 @@ a:hover {
 }
 
 .hero-content p {
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: 1.1rem;
     color: var(--light-text);
     margin-bottom: var(--spacing-xl);
     line-height: 1.6;
-    max-width: 100%;
 }
 
 /* Hero Buttons */
@@ -178,15 +175,12 @@ a:hover {
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-    flex-wrap: wrap;
 }
 
 .get-started, .video-btn {
-    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
-    font-size: clamp(0.875rem, 2vw, 1rem);
-    min-width: 120px;
-    white-space: nowrap;
+    padding: 12px 24px;
     border-radius: 30px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
 }
@@ -256,11 +250,8 @@ a:hover {
     }
 
     .hero-content h1 {
+        font-size: 2.5rem;
         margin-bottom: var(--spacing-md);
-    }
-
-    .hero-content p {
-        margin-bottom: var(--spacing-lg);
     }
 
     .buttons {
@@ -294,6 +285,10 @@ a:hover {
 
     .hero-content {
         padding: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
     }
 }
 

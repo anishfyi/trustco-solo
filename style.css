@@ -37,6 +37,7 @@
 
 html {
     font-size: 16px; /* Base font size for rem units */
+    scroll-behavior: smooth;
 }
 
 /* Responsive base font size */
@@ -1174,38 +1175,48 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px;
     max-width: 1200px;
     margin: auto;
-    gap: 20px;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .stat {
     flex: 1;
-    min-width: 150px;
+    min-width: 200px;
     position: relative;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
 }
 
 .stat h2 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     font-weight: bold;
     color: #0D3B56;
     margin: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    line-height: 1.2;
 }
 
 .stat span {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     color: #0D3B56;
     margin-left: 4px;
+    font-weight: bold;
 }
 
 .stat p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     color: #555;
-    margin-top: 8px;
+    margin-top: 12px;
+    line-height: 1.4;
 }
 
 /* Counter Animation */
@@ -1216,63 +1227,70 @@ a:hover {
 /* Responsive Styles */
 @media (max-width: 1200px) {
     .stats-section {
-        padding: 40px 20px;
+        padding: 60px 40px;
+        justify-content: center;
     }
 
-    .stat h2 {
-        font-size: 2.5rem;
-    }
-
-    .stat span {
-        font-size: 1.5rem;
-    }
-
-    .stat p {
-        font-size: 1rem;
+    .stat {
+        flex: 0 0 calc(50% - 40px);
+        min-width: 180px;
+        margin: 0 20px;
     }
 }
 
 @media (max-width: 1024px) {
     .stats-section {
-        flex-wrap: wrap;
-        gap: 30px;
+        padding: 50px 30px;
+        gap: 40px;
     }
 
     .stat {
-        flex: 0 0 calc(50% - 15px);
+        flex: 0 0 calc(50% - 30px);
+        padding: 15px;
+        margin: 0 15px;
     }
 }
 
 @media (max-width: 768px) {
     .stats-section {
+        padding: 40px 20px;
         flex-direction: column;
-        gap: 40px;
-        padding: 30px 20px;
+        gap: 35px;
     }
 
     .stat {
         flex: 0 0 100%;
+        max-width: 300px;
+        margin: 0;
+        padding: 10px;
     }
 
-    .stat h2 {
-        font-size: 2.8rem;
+    .stat:not(:last-child)::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px auto 0;
     }
 }
 
 @media (max-width: 480px) {
     .stats-section {
-        padding: 25px 15px;
+        padding: 30px 15px;
+        gap: 30px;
     }
 
-    .stat h2 {
-        font-size: 2.4rem;
+    .stat {
+        padding: 8px;
     }
 
-    .stat span {
-        font-size: 1.4rem;
+    .stat:hover {
+        transform: none; /* Disable hover effect on mobile */
     }
 
-    .stat p {
-        font-size: 0.9rem;
+    .stat:not(:last-child)::after {
+        width: 40px;
+        margin: 15px auto 0;
     }
 } 

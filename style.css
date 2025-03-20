@@ -10,7 +10,7 @@
     --secondary-color: #007BFF;
     --text-color: #333;
     --light-text: #666;
-    --background-color: #f8f9fa;
+    --background-color: #f2f5f6;
     --white: #ffffff;
     
     /* Spacing */
@@ -19,6 +19,11 @@
     --spacing-md: 16px;
     --spacing-lg: 24px;
     --spacing-xl: 32px;
+
+    /* Breakpoints */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
 }
 
 /* ============================= */
@@ -28,6 +33,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Base font size for rem units */
+}
+
+/* Responsive base font size */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
 }
 
 body {
@@ -103,7 +125,7 @@ a:hover {
     width: 100%;
     padding: 50px;
     background-color: var(--background-color);
-    min-height: 90vh;
+    min-height: 100vh;
     gap: var(--spacing-xl);
 }
 
@@ -116,8 +138,9 @@ a:hover {
 }
 
 .hero-image img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 /* Hero Content */
@@ -125,6 +148,7 @@ a:hover {
     flex: 2;
     max-width: 600px;
     text-align: center;
+    padding: 0 var(--spacing-md);
 }
 
 .hero-content h1 {
@@ -132,6 +156,7 @@ a:hover {
     font-weight: bold;
     color: var(--text-color);
     margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
 }
 
 .hero-content .highlight {
@@ -152,15 +177,18 @@ a:hover {
     gap: var(--spacing-md);
 }
 
-.get-started {
-    background: var(--primary-color);
-    color: var(--white);
+.get-started, .video-btn {
     padding: 12px 24px;
-    border: none;
     border-radius: 30px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+}
+
+.get-started {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -172,12 +200,7 @@ a:hover {
 .video-btn {
     background: var(--white);
     color: var(--primary-color);
-    padding: 12px 24px;
     border: 2px solid var(--primary-color);
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -188,6 +211,85 @@ a:hover {
     transform: translateY(-2px);
     background-color: var(--primary-color);
     color: var(--white);
+}
+
+.video-btn img.play-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 2rem;
+    }
+
+    .hero-content {
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    .hero-image {
+        flex: 1 1 45%;
+    }
+
+    .left-image {
+        order: 2;
+    }
+
+    .right-image {
+        order: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .get-started, .video-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 1rem;
+    }
+
+    .hero-image {
+        flex: 1 1 100%;
+    }
+
+    .left-image {
+        display: none;
+    }
+
+    .right-image {
+        margin-top: var(--spacing-lg);
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
 }
 
 /* Utility Classes */
@@ -203,4 +305,157 @@ a:hover {
 .mb-1 { margin-bottom: var(--spacing-sm); }
 .mb-2 { margin-bottom: var(--spacing-md); }
 .mb-3 { margin-bottom: var(--spacing-lg); }
-.mb-4 { margin-bottom: var(--spacing-xl); } 
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+/* ============================= */
+/* Navbar Styles */
+/* ============================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: auto;
+    width: 150px;
+    max-width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-buttons button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login {
+    background: transparent;
+    border: 1px solid var(--light-text);
+    color: var(--text-color);
+}
+
+.signup {
+    background: var(--primary-color);
+    border: none;
+    color: var(--white);
+}
+
+.auth-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* Trusted Companies Section */
+/* ============================= */
+.trusted-companies {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--white);
+}
+
+.trusted-companies h2 {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+}
+
+.company-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.company-logos img {
+    height: 30px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.company-logos img:hover {
+    opacity: 1;
+}
+
+/* Responsive Styles for Navbar and Companies */
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .company-logos {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
+    .company-logos {
+        gap: 1.5rem;
+    }
+
+    .company-logos img {
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        width: 120px;
+    }
+
+    .trusted-companies {
+        padding: 2rem 1rem;
+    }
+
+    .company-logos {
+        gap: 1rem;
+    }
+
+    .company-logos img {
+        height: 20px;
+    }
+} 

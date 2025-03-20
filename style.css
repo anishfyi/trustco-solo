@@ -988,36 +988,37 @@ a:hover {
 .award-badge {
     position: absolute;
     bottom: 30px;
-    left: auto;
     right: -50px;
 }
 
 .award-badge img {
     width: 150px;
     height: auto;
+    transition: transform 0.3s ease;
 }
 
 /* Right Side: Content */
 .bridge-content {
     width: 50%;
-    margin-bottom: 55px;
 }
 
 .bridge-content h2 {
     font-size: 2.8rem;
     font-weight: bold;
     color: #000;
-    text-align: center;
+    line-height: 1.2;
 }
 
 .bridge-content h2 span {
     color: #7A8A99;
+    display: inline-block;
 }
 
 .bridge-content p {
     font-size: 1.2rem;
     color: #555;
-    margin: 20px 0;
+    margin: 20px 0 30px;
+    line-height: 1.5;
 }
 
 /* Button */
@@ -1029,15 +1030,32 @@ a:hover {
     font-size: 1rem;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-reports::after {
+    content: "→";
+    font-size: 1.2em;
 }
 
 .view-reports:hover {
     background-color: #082A40;
 }
 
-/* Responsive adjustments */
+/* Responsive Styles */
 @media (max-width: 1200px) {
+    .bridge-container {
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    .bridge-content h2 {
+        font-size: 2.4rem;
+    }
+
     .award-badge {
         right: -30px;
     }
@@ -1048,12 +1066,16 @@ a:hover {
 }
 
 @media (max-width: 1024px) {
-    .bridge-container {
-        gap: 40px;
+    #building-bridge {
+        padding: 60px 5%;
     }
 
-    .bridge-image img {
-        max-width: 450px;
+    .bridge-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .bridge-content p {
+        font-size: 1.1rem;
     }
 
     .award-badge {
@@ -1067,10 +1089,6 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    #building-bridge {
-        padding: 60px 20px;
-    }
-
     .bridge-container {
         flex-direction: column;
         text-align: center;
@@ -1081,6 +1099,7 @@ a:hover {
         width: 100%;
         display: flex;
         justify-content: center;
+        margin-bottom: 20px;
     }
 
     .bridge-image img {
@@ -1090,7 +1109,6 @@ a:hover {
 
     .bridge-content {
         width: 100%;
-        margin-bottom: 0;
     }
 
     .bridge-content h2 {
@@ -1099,12 +1117,13 @@ a:hover {
 
     .bridge-content p {
         font-size: 1.1rem;
-        margin: 15px 0;
+        max-width: 500px;
+        margin: 20px auto 30px;
     }
 
     .award-badge {
-        right: 10%;
-        bottom: -20px;
+        right: 5%;
+        bottom: -30px;
     }
 
     .award-badge img {
@@ -1114,7 +1133,15 @@ a:hover {
 
 @media (max-width: 480px) {
     #building-bridge {
-        padding: 40px 15px;
+        padding: 40px 20px;
+    }
+
+    .bridge-container {
+        gap: 30px;
+    }
+
+    .bridge-image img {
+        max-width: 300px;
     }
 
     .bridge-content h2 {
@@ -1123,13 +1150,20 @@ a:hover {
 
     .bridge-content p {
         font-size: 1rem;
+        margin: 15px auto 25px;
     }
 
-    .bridge-image img {
-        max-width: 320px;
+    .award-badge {
+        right: 0;
+        bottom: -20px;
     }
 
     .award-badge img {
         width: 80px;
+    }
+
+    .view-reports {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 } 

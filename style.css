@@ -421,12 +421,18 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+    .trusted-companies {
+        padding: 2rem;
+    }
+
     .company-logos {
         gap: 1.5rem;
+        flex-wrap: wrap; /* Allow logos to wrap on smaller screens */
     }
 
     .company-logos img {
         height: 25px;
+        max-width: 100%; /* Ensure images don't overflow */
     }
 }
 
@@ -437,9 +443,15 @@ a:hover {
 
     .company-logos {
         gap: 1rem;
+        flex-wrap: wrap;
     }
 
     .company-logos img {
         height: 20px;
+    }
+
+    .trusted-companies h2 {
+        font-size: 16px; /* Slightly smaller heading on mobile */
+        margin-bottom: 1rem;
     }
 } 

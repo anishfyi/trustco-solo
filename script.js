@@ -60,4 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
 
     counters.forEach(counter => observer.observe(counter));
+});
+
+// Set current year in footer
+document.addEventListener('DOMContentLoaded', function() {
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
 }); 

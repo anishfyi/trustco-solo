@@ -1166,4 +1166,113 @@ a:hover {
         padding: 10px 20px;
         font-size: 0.9rem;
     }
+}
+
+/* Numbers Section */
+.stats-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+}
+
+.stat {
+    flex: 1;
+    min-width: 150px;
+    position: relative;
+}
+
+.stat h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0D3B56;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat span {
+    font-size: 1.8rem;
+    color: #0D3B56;
+    margin-left: 4px;
+}
+
+.stat p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 8px;
+}
+
+/* Counter Animation */
+.counter {
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .stats-section {
+        padding: 40px 20px;
+    }
+
+    .stat h2 {
+        font-size: 2.5rem;
+    }
+
+    .stat span {
+        font-size: 1.5rem;
+    }
+
+    .stat p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .stats-section {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .stat {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 30px 20px;
+    }
+
+    .stat {
+        flex: 0 0 100%;
+    }
+
+    .stat h2 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
+        padding: 25px 15px;
+    }
+
+    .stat h2 {
+        font-size: 2.4rem;
+    }
+
+    .stat span {
+        font-size: 1.4rem;
+    }
+
+    .stat p {
+        font-size: 0.9rem;
+    }
 } 

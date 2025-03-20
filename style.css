@@ -199,25 +199,26 @@ a:hover {
 }
 
 .video-btn {
-    background: var(--white);
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .video-btn:hover {
     transform: translateY(-2px);
-    background-color: var(--primary-color);
-    color: var(--white);
+    opacity: 0.9;
 }
 
-.video-btn img.play-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
+.play-icon {
+    width: 24px;
+    height: 24px;
 }
 
 /* Media Queries */

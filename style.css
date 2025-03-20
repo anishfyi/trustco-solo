@@ -1817,7 +1817,6 @@ a:hover {
     background-color: #0D0D0D;
     color: white;
     padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 10%);
-    padding: clamp(2rem, 5vw, 5rem) clamp(1.25rem, 5vw, 10%);
     position: relative;
     margin-top: 2.5rem;
     min-height: 490px;
@@ -1828,11 +1827,9 @@ a:hover {
 .cta-content {
     max-width: 50%;
     z-index: 1;
-    z-index: 1;
 }
 
 .cta-heading {
-    font-size: clamp(1.75rem, 4vw, 2.625rem);
     font-size: clamp(1.75rem, 4vw, 2.625rem);
     font-weight: bold;
     line-height: 1.2;
@@ -1844,12 +1841,9 @@ a:hover {
     border: none;
     padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.25rem, 3vw, 1.5rem);
     font-size: clamp(1rem, 2vw, 1.125rem);
-    padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.25rem, 3vw, 1.5rem);
-    font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: clamp(1rem, 3vw, 1.25rem);
     margin-top: clamp(1rem, 3vw, 1.25rem);
     display: inline-block;
     transition: 0.3s ease-in-out;
@@ -1859,12 +1853,9 @@ a:hover {
 .cta-btn:hover {
     background-color: #E5B23A;
     transform: translateY(-2px);
-    transform: translateY(-2px);
 }
 
 .cta-subtext {
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
-    margin-top: clamp(0.625rem, 2vw, 0.75rem);
     font-size: clamp(0.875rem, 1.5vw, 1rem);
     margin-top: clamp(0.625rem, 2vw, 0.75rem);
     opacity: 0.8;
@@ -1873,8 +1864,6 @@ a:hover {
 /* CTA Right Image */
 .cta-image-wrapper {
     position: relative;
-    max-width: 50%;
-    margin-left: 2rem;
     max-width: 50%;
     margin-left: 2rem;
 }
@@ -1890,8 +1879,6 @@ a:hover {
 /* Decorative Elements */
 .cta-decor {
     position: absolute;
-    width: clamp(35px, 5vw, 55px);
-    height: clamp(120px, 15vw, 180px);
     width: clamp(35px, 5vw, 55px);
     height: clamp(120px, 15vw, 180px);
     border-radius: 12px;
@@ -1930,27 +1917,6 @@ a:hover {
 }
 
 /* Mobile Breakpoint */
-/* Tablet Breakpoint */
-@media (max-width: 1024px) {
-    .cta-section {
-        padding: 3rem 5%;
-    }
-
-    .cta-content {
-        max-width: 55%;
-    }
-
-    .cta-image-wrapper {
-        max-width: 45%;
-    }
-
-    .cta-decor {
-        width: 40px;
-        height: 140px;
-    }
-}
-
-/* Mobile Breakpoint */
 @media (max-width: 768px) {
     .cta-section {
         flex-direction: column;
@@ -1965,8 +1931,6 @@ a:hover {
     }
 
     .cta-heading {
-        font-size: clamp(1.5rem, 6vw, 1.75rem);
-        margin-bottom: 1rem;
         font-size: clamp(1.5rem, 6vw, 1.75rem);
         margin-bottom: 1rem;
     }
@@ -1997,36 +1961,6 @@ a:hover {
         right: 20px;
         right: 20px;
         bottom: 5%;
-    }
-}
-
-/* Small Mobile Breakpoint */
-@media (max-width: 480px) {
-    .cta-section {
-        padding: 2rem 1rem;
-    }
-
-    .cta-heading {
-        font-size: 1.5rem;
-    }
-
-    .cta-btn {
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-        max-width: 250px;
-    }
-
-    .cta-subtext {
-        font-size: 0.875rem;
-    }
-
-    .cta-image-wrapper {
-        max-width: 95%;
-    }
-
-    .cta-decor {
-        width: 15px;
-        height: 50px;
     }
 }
 
@@ -2450,3 +2384,51 @@ a:hover {
     }
 }
 
+/* Consolidate common styles */
+.btn {
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Use the common btn class */
+.get-started, 
+.video-btn, 
+.cta-button, 
+.auth-buttons button {
+    @extend .btn;
+}
+
+/* Consolidate hover effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Apply hover-lift class to relevant elements */
+.benefit-card,
+.testimonial-card,
+.blog-card {
+    @extend .hover-lift;
+}
+
+/* Consolidate common spacing */
+.section-padding {
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+}
+
+/* Apply section-padding class to relevant sections */
+.hero,
+.trusted-companies,
+.video-section,
+#benefit-section,
+.testimonial-section,
+.blog-section {
+    @extend .section-padding;
+}
